@@ -1,52 +1,52 @@
 import React from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import  { useState, useEffect } from 'react';
-import CardComponent from "./cardComponent";
+import { useState, useEffect } from "react";
+import Cardcomponent from "./cardComponent";
+
+const cookies = new Cookies();
+var user = getCookie("username");
 
 const baseURL = "http://localhost:8000/getProduct";
 
-const cookies = new Cookies();
+function Cart() {
+  const [post, setPost] = React.useState([]);
 
-const Cart = () => {
-  const [flag,setFlag]=useState(false);
-  console.log("IN CART");
-  var user = getCookie("username");
-  let data;  
-
-  useEffect(function () {
-    axios
-      .post(baseURL, {
-        username: user,
-      })
-      .then((response) => {
-        console.log(response.data);
-        data = response.data;
-        setFlag(true);
-      })
-      .catch((err) => {
-        console.log("FAILED TO LOAD");
-      });
+  React.useEffect(() => {
+    axios.post(baseURL, { username: user }).then((response) => {
+      setPost(response.data);
+      console.log(response.data);
+    });
   }, []);
-  if (user === "GUEST") {
-    return <div>PLEASE LOGIN</div>;
-  }
-  
+
   return (
-    <div>
-      Haiii
-      { user}
+    <>
+      <div className="mainCard">
+        {post["mail"]}
+        {post.map((post1) => (
+          <React.Fragment>
+            {<Cardcomponent link={post1["imgLink"]} Price={post1["price"]} Name={post1["name"]} />}
+            <button onClick={deletePost} id={post1["_id"]} >Delete Post</button>
+          </React.Fragment>
+        ))}
 
-      {(flag && data.length!==0) && data.map((obj)=>{
-        console.log(obj)
-        return (<CardComponent Data={obj} />)
-      })}
+        {/* <button onClick={createPost}>Create Post</button> */}
 
-      {/* {flag && <div>{data}</div>} */}
-      {/* <CardComponent/> */}
-    </div>
+        
+
+        {/* <button onClick={() => source.cancel()}>Cancel request</button> */}
+      </div>
+    </>
   );
-};
+}
+const deletePost=(id)=>{
+  console.log(id["target"]["id"]);
+  axios.post("http://localhost:8000/delProduct", { _id:id["target"]["id"]  }).then((response) => {
+    // setPost(response.data);
+    console.log(response.data);
+  });
+  console.log("Delete Here");
+}
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);

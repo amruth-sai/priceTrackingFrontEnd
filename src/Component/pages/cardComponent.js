@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "./cardCss.css";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,14 +9,15 @@ import {
 import Home from "./Home";
 
 function cardComponent(Data) {
-  // console.log(Data)
   return (
     <React.Fragment>
       <div className="card">
         <div className="innerContainer">
-          {/* <img src={Data.imgLink} />
-          <div>{Data.Price} njfebwfskbkluewvhjbf</div> */}
-          bikjfebdsiulbwefdh.
+          {/* <div>{Data.link}</div> */}
+          <img src={Data.link}  crossOrigin="anonymous"/>
+          <div>{Data.Name}</div>
+          <div>{Data.Price}</div>
+          
         </div>
       </div>
     </React.Fragment>

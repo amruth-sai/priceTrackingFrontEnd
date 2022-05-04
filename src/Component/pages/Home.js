@@ -1,8 +1,11 @@
 import React from "react";
 const Home = () => {
   console.log("IN HOME");
+  // window.location.href = window.location.href
+  // window.location.reload();
+
   return (
-    <div>
+    <div id="root1">
       <div className="homepageLeft">
         <p className="homePageLeftInner">
           Haii this is prictracking APPLICATION

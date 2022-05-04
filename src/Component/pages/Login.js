@@ -60,6 +60,7 @@ class Login extends Component {
           cookies.set('username', this.state.username, { path: '/' });
           console.log("AFTER GOOD RESPONSE");
           this.changeView("None");
+          // window.location.reload();
         }
         else{
           console.log("NO USER FOUND");
@@ -139,6 +140,11 @@ class Login extends Component {
         );
         break;
       case "logIn":
+        if(getCookie("username")!=="GUEST"){
+          console.log("HERE");
+          window.location.reload();
+          {<Navigate to="/" />}
+        }
         return (
           <form>
             <h2>Welcome Back!</h2>
@@ -223,6 +229,21 @@ class Login extends Component {
       </>
     );
   }
+}
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
 export default Login;
 // ReactDOM.render(<Login/>, document.getElementById("app"))

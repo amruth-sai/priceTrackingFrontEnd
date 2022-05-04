@@ -2,17 +2,21 @@
   "name": "frontend2",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://m.media-amazon.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.10",
+    "node-fetch": "^3.2.4",
     "node-sass": "^7.0.1",
     "react": "^18.1.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "request": "^2.88.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
