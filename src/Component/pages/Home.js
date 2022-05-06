@@ -5,7 +5,7 @@ const Home = () => {
   // window.location.reload();
 
   return (
-    <div id="root1">
+    <div style={{height:"100vh"}}>
       <div className="homepageLeft">
         <p className="homePageLeftInner">
           Haii this is prictracking APPLICATION

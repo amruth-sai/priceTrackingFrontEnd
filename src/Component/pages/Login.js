@@ -24,17 +24,23 @@ class Login extends Component {
   
   constructor(props) {
     super(props);
-
+    console.log("IN LOGIN");
+    var x=false;
+    
     this.state = {
       currentView: "logIn",
       username: "",
       password: "",
       email:"",
+      isLogin:x,
     };
     this.updateInput = this.updateInput.bind(this);
     this.updateInput1 = this.updateInput1.bind(this);
     this.updateInput2 = this.updateInput2.bind(this);
-
+    if(getCookie("username")!=="GUEST"){
+      console.log("USER reached");
+      this.changeView("alreadyLogin");
+    }
   }
   
     updateInput(event) {
@@ -110,7 +116,11 @@ class Login extends Component {
   };
 
   currentView = () => {
-    switch (this.state.currentView) {
+
+    switch (this.state.currentView) { 
+      case "alreadyLogin":
+        return (<div>Haii</div>) 
+        break;
       case "signUp":
         return (
           <form>
@@ -142,8 +152,14 @@ class Login extends Component {
       case "logIn":
         if(getCookie("username")!=="GUEST"){
           console.log("HERE");
-          window.location.reload();
+          // window.location.reload();
           {<Navigate to="/" />}
+          const mystyle = {
+            display:"flex",
+            // align-items:"center",
+            height:"17vh",
+          };
+          return (<div style={mystyle}>User already Login</div>)
         }
         return (
           <form>

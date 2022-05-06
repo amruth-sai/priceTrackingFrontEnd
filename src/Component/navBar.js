@@ -26,7 +26,7 @@ const navbar = () => {
       <div className="navbar">
       <div className="navbar_item">
           <p>
-          <Link to="/">HOME</Link>
+          <Link to="/home">HOME</Link>
           </p>
         </div>
         <div className="navbar_item">
@@ -37,14 +37,14 @@ const navbar = () => {
         
         <div className="navbar_item">
           <p>
-          <Link to="/login">LOGIN</Link>
+          <Link to="/login">LOGIN/SIGNUP</Link>
           </p>
         </div>
-        <div className="navbar_item">
+        {/* <div className="navbar_item">
           <p>
           <Link to="/signup">SIGNUP</Link>
           </p>
-        </div>
+        </div> */}
       </div>
       <div className="account">
         <img className="dp" src='https://as2.ftcdn.net/v2/jpg/02/15/84/43/1000_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'></img>
