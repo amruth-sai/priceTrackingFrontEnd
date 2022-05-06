@@ -34,12 +34,12 @@ const navbar = () => {
           <Link to="/cart">My Products</Link>
           </p>
         </div>
-        
-        <div className="navbar_item">
+        {renderElement()}
+        {/* <div className="navbar_item">
           <p>
           <Link to="/login">LOGIN/SIGNUP</Link>
           </p>
-        </div>
+        </div> */}
         {/* <div className="navbar_item">
           <p>
           <Link to="/signup">SIGNUP</Link>
@@ -71,5 +71,14 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+function renderElement(){
+  if(getCookie("username") === 'GUEST')
+     return (<div className="navbar_item">
+     <p>
+     <Link to="/login">LOGIN/SIGNUP</Link>
+     </p>
+   </div>);
+  return null;
 }
 export default navbar;

@@ -153,7 +153,9 @@ class Login extends Component {
         if(getCookie("username")!=="GUEST"){
           console.log("HERE");
           // window.location.reload();
-          {<Navigate to="/" />}
+          // window.location.reload(false);
+
+          {<Navigate to="/home" />}
           const mystyle = {
             display:"flex",
             // align-items:"center",
