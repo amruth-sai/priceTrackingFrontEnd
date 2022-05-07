@@ -24,17 +24,11 @@ function Cart() {
       <div className="mainCard">
         {post["mail"]}
         {post.map((post1) => (
-          <React.Fragment>
-            {<Cardcomponent link={post1["imgLink"]} Price={post1["price"]} Name={post1["name"]} />}
-            <button onClick={deletePost} id={post1["_id"]} >Delete Post</button>
-          </React.Fragment>
+          <div className="card">
+            {<Cardcomponent link1={post1["link"]} link={post1["imgLink"]} Price={post1["price"]} Name={post1["name"]} />}
+            <button className="delButton" onClick={deletePost} id={post1["_id"]} >Delete</button>
+          </div>
         ))}
-
-        {/* <button onClick={createPost}>Create Post</button> */}
-
-        
-
-        {/* <button onClick={() => source.cancel()}>Cancel request</button> */}
       </div>
     </>
   );

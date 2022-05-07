@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
 import Cart from "./pages/Cart";
+import Addproduct from "./pages/addProduct";
+
 function App() {
   return (
     <Router>
@@ -18,6 +20,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/addProduct" element={<Addproduct />} />
+        
       </Routes>
     </Router>
   );

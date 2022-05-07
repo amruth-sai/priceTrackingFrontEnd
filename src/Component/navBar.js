@@ -6,7 +6,16 @@ import {
   useNavigate,
   Navigate,
 } from "react-router-dom";
+import  { useState } from 'react';
+
 import { Link } from "react-router-dom";
+
+function UseForceUpdate(){
+  console.log("IN FORCE UPDATE")
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => value + 1); // update the state to force render
+}
+const forceUpdate = UseForceUpdate;
 
 const navbar = () => {
   const imageClick = () => {
@@ -31,10 +40,11 @@ const navbar = () => {
         </div>
         <div className="navbar_item">
           <p>
-          <Link to="/cart">My Products</Link>
+          <Link to="/cart" >My Products</Link>
           </p>
         </div>
         {renderElement()}
+        {renderElement1()}
         {/* <div className="navbar_item">
           <p>
           <Link to="/login">LOGIN/SIGNUP</Link>
@@ -50,7 +60,7 @@ const navbar = () => {
         <img className="dp" src='https://as2.ftcdn.net/v2/jpg/02/15/84/43/1000_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'></img>
           <p>
             <div>{getCookie("username")}</div>
-          <Link to="/logout">LOGOUT</Link>
+          <Link to="/logout" onClick={forceUpdate}>LOGOUT</Link>
           </p>
         </div>
     </div>
@@ -76,7 +86,16 @@ function renderElement(){
   if(getCookie("username") === 'GUEST')
      return (<div className="navbar_item">
      <p>
-     <Link to="/login">LOGIN/SIGNUP</Link>
+     <Link to="/login" onClick={forceUpdate}>LOGIN/SIGNUP</Link>
+     </p>
+   </div>);
+  return null;
+}
+function renderElement1(){
+  if(getCookie("username") !== 'GUEST')
+     return (<div className="navbar_item">
+     <p>
+     <Link to="/addProduct" >Add NewProduct</Link>
      </p>
    </div>);
   return null;
