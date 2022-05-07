@@ -78,6 +78,7 @@ class addProduct extends Component {
               onChange={this.updateInput}
               required
             />
+            
           <br/>
           <button className="abcdef" onClick={this.handleSubmit}>Submit</button>
           </div>
