@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
         <div className="bottomright">
           <p>GET IN TOUCH</p>
-          <div>pricetracking@gmail.com</div>
+          <div>pricetracking062657@gmail.com</div>
         </div>
       </footer>
     </div>
