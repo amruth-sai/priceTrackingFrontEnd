@@ -117,9 +117,14 @@ a:hover {
   border-radius: 10px;
 }
 .homePageLeftInner {
-  background-color: #202323;
+  background-color: #f1f5f5;
   font-size: 20px;
   font-weight: bolder !important;
+}
+.homePageLeft {
+ 
+  font-size: 30px;
+
 }
 .account {
   display: flex;

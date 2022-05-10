@@ -8,9 +8,11 @@ const Home = () => {
     <div style={{height:"100vh"}}>
       <div className="homepageLeft">
         <p className="homePageLeftInner">
-          Haii this is prictracking APPLICATION
+          HEY WANT TO TRACK YOUR PRICES!!
         </p>
-
+     <p className="homePageLeft">
+        We will create a price alert and let you know when fares change for your favourite products.
+       </p>
       </div>
       <img
         className="homepageImg"
