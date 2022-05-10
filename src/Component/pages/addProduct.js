@@ -67,7 +67,7 @@ class addProduct extends Component {
     return (
       <div className="addProductMain" style={{ height: "100vh" }}>
         <form className="formAddpro">
-          <h2>Add Link to Track New Product</h2>
+          <h2  >Add Link to Track New Product</h2>
           <div className="IneerAddPro">
             <label for="itemLink"><h1>Drop Link here</h1></label>
             <br/>

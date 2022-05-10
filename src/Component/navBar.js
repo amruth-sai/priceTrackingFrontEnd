@@ -30,7 +30,7 @@ const navbar = () => {
         <img
           className="mainlogo"
           onClick={() => imageClick()}
-          src="https://www.lux-review.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2020/12/grocery-shopping.jpg.webp"
+          src="https://img.lovepik.com/free-png/20211110/lovepik-ecommerce-shopping-png-image_400761133_wh1200.png"
         ></img>
       </div>
       <div className="navbar">

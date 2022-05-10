@@ -17,9 +17,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-#root,
-#root1 {
-  /* display: grid; */
+#root1,
+#root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: 1fr minmax(200px, 400px) 1fr;
   grid-template-rows: 1fr minmax(auto, 1fr) 1fr;
   grid-gap: 10px;
@@ -37,7 +39,7 @@ code {
   /* border: 2px solid; */
   /* background-color: rgb(231, 60, 126); */
   width: 100vw;
-  height: 15vh;
+  /* height: 15vh; */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -66,9 +68,9 @@ code {
 }
 .mainlogo {
   display: block;
-  width: 100%;
+  width: auto;
   height: 100%;
-
+  /* background-color: #000000; */
   /* #00d5ff
   #7bffff */
 }
@@ -146,7 +148,7 @@ a:hover {
   height: auto;
 }
 .mainCard {
-  height: 80vh;
+  height: 100%;
   background-color: #f1f4f8;
   padding: 20px;
   position: relative;
@@ -205,17 +207,21 @@ a:hover {
 }
 .addProductMain {
   position: relative;
-  left: 100px;
+  /* left: 100px; */
   top: 100px;
 }
 .formAddpro {
-  width: 1000px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .IneerAddPro {
   opacity: 0.9;
   background-color: #f1f4f8;
   position: relative;
-  left: 300px;
+  /* left: 300px; */
   top: 25px;
   width: 600px;
   height: 400px;
@@ -224,6 +230,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: 50px;
 }
 .abcdef {
   /* padding: 5px;
@@ -280,4 +287,87 @@ a:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+.banner_sec,
+.top_hdr {
+  vertical-align: middle;
+  float: left;
+  gap:10px;
+  margin-top: 20px;
+  width: 80%;
+  position: relative;
+  left: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left_sec {
+  float: left;
+  width: 50%;
+}
+.right_sec {
+  float: right;
+  width: 50%;
+  box-sizing: border-box;
+}
+.right_sec > img{
+  height: 500px;
+  width: auto;
+}
+.container {
+  /* max-width: 1200px; */
+  padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 40px;
+}
+.left_sec > h1{
+  /* margin-bottom: 100px; */
+  font-size: xxx-large;
+}
+.left_sec > p{
+  font-size: x-large;
+  margin-top: 20px;
+}
+.container1{
+  /* align-items: center; */
+  /* justify-content: center;
+  justify-items: baseline; */
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  position: relative;
+  left: 10%;
+
+}
+.innerC1{
+  display: flex;
+  flex-direction: column;
+  width: 400%;
+  float: left;
+}
+h3{
+  font-weight: 300;
+}
+.site_ftr{
+  position: relative;
+  top: 30px;
+  width: 80%;
+  left: 10%;
+  background-color: #f6fffe;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  flex: 1 1 0;
+
+}
+.bottom{
+  display: grid;
+  top: 30px;
+ height: 200px;
+  position: relative;
+  width: 100%;
+  background-color: #f6fffe;
 }

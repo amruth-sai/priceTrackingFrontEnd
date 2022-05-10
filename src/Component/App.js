@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
 import Cart from "./pages/Cart";
 import Addproduct from "./pages/addProduct";
+import Footer from "./pages/Footer";
 import {useState} from 'react';
 function App() {
   const [temp,setTemp] = useState(false);
@@ -24,9 +25,9 @@ function App() {
         <Route path="/signup" element={<Signup />} loading/>
         <Route path="/logout" element={<Logout temp={temp} setTemp={setTemp}/>} loading/>
         <Route path="/addProduct" element={<Addproduct />} loading/>
-        
-        
       </Routes>
+      <Footer />
+      
     </Router>
   );
 }
