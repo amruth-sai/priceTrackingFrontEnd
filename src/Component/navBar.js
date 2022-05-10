@@ -6,14 +6,14 @@ import {
   useNavigate,
   Navigate,
 } from "react-router-dom";
-import  { useState } from 'react';
+import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-function UseForceUpdate(){
-  console.log("IN FORCE UPDATE")
+function UseForceUpdate() {
+  console.log("IN FORCE UPDATE");
   const [value, setValue] = useState(0); // integer state
-  return () => setValue(value => value + 1); // update the state to force render
+  return () => setValue((value) => value + 1); // update the state to force render
 }
 const forceUpdate = UseForceUpdate;
 
@@ -21,26 +21,27 @@ const navbar = () => {
   const imageClick = () => {
     // const navigate = useNavigate();
 
-   
-      
     console.log("here");
     // navigate('/home');
-    
-  } 
+  };
   return (
     <div className="navbar_outer">
       <div>
-        <img className="mainlogo" onClick={()=>imageClick()} src="https://www.lux-review.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2020/12/grocery-shopping.jpg.webp"></img>
+        <img
+          className="mainlogo"
+          onClick={() => imageClick()}
+          src="https://www.lux-review.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2020/12/grocery-shopping.jpg.webp"
+        ></img>
       </div>
       <div className="navbar">
-      <div className="navbar_item">
+        <div className="navbar_item">
           <p>
-          <Link to="/home">HOME</Link>
+            <Link to="/home">HOME</Link>
           </p>
         </div>
         <div className="navbar_item">
           <p>
-          <Link to="/cart" >My Products</Link>
+            <Link to="/cart">My Products</Link>
           </p>
         </div>
         {renderElement()}
@@ -57,12 +58,15 @@ const navbar = () => {
         </div> */}
       </div>
       <div className="account">
-        <img className="dp" src='https://as2.ftcdn.net/v2/jpg/02/15/84/43/1000_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'></img>
-          <p>
-            <div>{getCookie("username")}</div>
-          <Link to="/logout" onClick={forceUpdate}>LOGOUT</Link>
-          </p>
-        </div>
+        <img
+          className="dp"
+          src="https://as2.ftcdn.net/v2/jpg/02/15/84/43/1000_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+        ></img>
+        <p>
+          <div>{getCookie("username")}</div>
+          {renderElement2()}
+        </p>
+      </div>
     </div>
   );
 };
@@ -82,22 +86,38 @@ function getCookie(cname) {
   }
   return "";
 }
-function renderElement(){
-  if(getCookie("username") === 'GUEST')
-     return (<div className="navbar_item">
-     <p>
-     <Link to="/login" onClick={forceUpdate}>LOGIN/SIGNUP</Link>
-     </p>
-   </div>);
+function renderElement() {
+  if (getCookie("username") === "GUEST")
+    return (
+      <div className="navbar_item loginitem">
+        <p>
+          <Link to="/login" onClick={forceUpdate}>
+            LOGIN/SIGNUP
+          </Link>
+        </p>
+      </div>
+    );
   return null;
 }
-function renderElement1(){
-  if(getCookie("username") !== 'GUEST')
-     return (<div className="navbar_item">
-     <p>
-     <Link to="/addProduct" >Add NewProduct</Link>
-     </p>
-   </div>);
+function renderElement1() {
+  if (getCookie("username") !== "GUEST")
+    return (
+      <div className="navbar_item">
+        <p>
+          <Link to="/addProduct">Add NewProduct</Link>
+        </p>
+      </div>
+    );
+  return null;
+}
+function renderElement2() {
+  if (getCookie("username") !== "GUEST") {
+    return (
+      <Link to="/logout" onClick={forceUpdate}>
+        LOGOUT
+      </Link>
+    );
+  }
   return null;
 }
 export default navbar;

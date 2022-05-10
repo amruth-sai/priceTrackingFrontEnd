@@ -12,8 +12,9 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 
-const Logout = () =>{
+const Logout = (props) =>{
   
+  props.setTemp(!props.temp)
   cookies.set('username',"GUEST", { path: '/' });
 
   return (

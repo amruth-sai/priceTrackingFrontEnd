@@ -55,7 +55,7 @@ class Login extends Component {
   handleSubmit = (event) => {
     console.log("Your input value is: " + this.state.username);
     console.log("Your input value is: " + this.state.password);
-
+    this.changeView("loading");
     axios.post(baseURL, {
         username: this.state.username,
         password: this.state.password,
@@ -118,6 +118,9 @@ class Login extends Component {
   currentView = () => {
 
     switch (this.state.currentView) { 
+      case "loading":
+        return (<div><h2>LOADING ....</h2></div>)
+        break;
       case "alreadyLogin":
         return (<div>Haii</div>) 
         break;
@@ -228,6 +231,7 @@ class Login extends Component {
         break;
       case "None":
         console.log("HERE after login ");
+        this.props.setTemp(!this.props.temp);
         return null;
         break;
 
