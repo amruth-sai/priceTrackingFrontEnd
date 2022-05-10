@@ -1,9 +1,12 @@
 import React from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import { LoadingContext } from "react-router-loading";
+// import { useContext } from 'react';
 import { useState, useEffect } from "react";
-import Cardcomponent from "./cardComponent";
+import Cardcomponent from "./cardComponent";  
 
+// const loadingContext = useContext(LoadingContext);
 const cookies = new Cookies();
 var user = getCookie("username");
 
@@ -24,7 +27,7 @@ function Cart() {
       <div className="mainCard">
         {post["mail"]}
         {post.map((post1) => (
-          <div className="card">
+          <div className="card" id={post1["_id"]+1}>
             {<Cardcomponent link1={post1["link"]} link={post1["imgLink"]} Price={post1["price"]} Name={post1["name"]} />}
             <button className="delButton" onClick={deletePost} id={post1["_id"]} >Delete</button>
           </div>
@@ -35,6 +38,7 @@ function Cart() {
 }
 const deletePost=(id)=>{
   console.log(id["target"]["id"]);
+  document.getElementById(id["target"]["id"]+1).style.display="none";
   axios.post("http://localhost:8000/delProduct", { _id:id["target"]["id"]  }).then((response) => {
     // setPost(response.data);
     console.log(response.data);
